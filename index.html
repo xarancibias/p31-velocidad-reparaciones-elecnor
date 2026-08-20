@@ -2,68 +2,83 @@
 <style>
   .viz-root {
     color-scheme: light;
-    --surface-0:      #f7f8f7;
+    --surface-0:      #f2f3f9;
     --surface-1:      #ffffff;
-    --surface-2:      #eef1f0;
-    --text-primary:   #10161a;
-    --text-secondary: #52595c;
-    --text-muted:     #898f8e;
-    --border:         rgba(16,22,26,0.10);
-    --border-strong:  rgba(16,22,26,0.18);
-    --accent:         #2a78d6;
-    --accent-soft:    #cde2fb;
-    --orange:         #eb6834;
-    --good:           #0ca30c;
-    --good-soft:      #e2f4e0;
-    --warning:        #c98500;
-    --warning-soft:   #fbedcf;
-    --critical:       #d03b3b;
-    --critical-soft:  #fbe1e0;
-    --grid:           #e1e0d9;
+    --surface-2:      #eaecf6;
+    --text-primary:   #0c0c4e;
+    --text-secondary: #46475f;
+    --text-muted:     #85869e;
+    --border:         rgba(12,12,78,0.12);
+    --border-strong:  rgba(12,12,78,0.22);
+
+    --navy:           #0c0c4e;
+    --navy-ink:       #06062b;
+    --blue:           #062f6e;
+    --blue-soft:      #dfe7f6;
+    --orange:         #fe6b00;
+    --orange-soft:    #ffe6d1;
+
+    --good:           #0e8a3e;
+    --good-soft:      #e0f4e6;
+    --warning:        #b4790a;
+    --warning-soft:   #fbedd0;
+    --critical:       #c42a2a;
+    --critical-soft:  #fbe0e0;
+    --grid:           #e2e3ee;
   }
   @media (prefers-color-scheme: dark) {
     :root:where(:not([data-theme="light"])) .viz-root {
       color-scheme: dark;
-      --surface-0:      #101314;
-      --surface-1:      #181c1d;
-      --surface-2:      #212627;
-      --text-primary:   #f4f6f5;
-      --text-secondary: #b7bcbb;
-      --text-muted:     #7d8382;
-      --border:         rgba(255,255,255,0.10);
-      --border-strong:  rgba(255,255,255,0.18);
-      --accent:         #3987e5;
-      --accent-soft:    #1c3252;
-      --orange:         #d97a4a;
-      --good:           #0ca30c;
-      --good-soft:      #123018;
-      --warning:        #d99a1f;
-      --warning-soft:   #332a10;
-      --critical:       #e66767;
-      --critical-soft:  #3a1a1a;
-      --grid:           #2c2c2a;
+      --surface-0:      #08081f;
+      --surface-1:      #0f0f33;
+      --surface-2:      #17173f;
+      --text-primary:   #f2f2fb;
+      --text-secondary: #c1c2dc;
+      --text-muted:     #8688a8;
+      --border:         rgba(255,255,255,0.11);
+      --border-strong:  rgba(255,255,255,0.20);
+
+      --navy:           #b9bce8;
+      --navy-ink:       #f2f2fb;
+      --blue:           #7d9deb;
+      --blue-soft:      #182246;
+      --orange:         #ff8a3d;
+      --orange-soft:    #3a2211;
+
+      --good:           #33c46a;
+      --good-soft:      #103420;
+      --warning:        #e2ab2c;
+      --warning-soft:   #362a0d;
+      --critical:       #ee6a6a;
+      --critical-soft:  #3a1414;
+      --grid:           #23244a;
     }
   }
   :root[data-theme="dark"] .viz-root {
     color-scheme: dark;
-    --surface-0:      #101314;
-    --surface-1:      #181c1d;
-    --surface-2:      #212627;
-    --text-primary:   #f4f6f5;
-    --text-secondary: #b7bcbb;
-    --text-muted:     #7d8382;
-    --border:         rgba(255,255,255,0.10);
-    --border-strong:  rgba(255,255,255,0.18);
-    --accent:         #3987e5;
-    --accent-soft:    #1c3252;
-    --orange:         #d97a4a;
-    --good:           #0ca30c;
-    --good-soft:      #123018;
-    --warning:        #d99a1f;
-    --warning-soft:   #332a10;
-    --critical:       #e66767;
-    --critical-soft:  #3a1a1a;
-    --grid:           #2c2c2a;
+    --surface-0:      #08081f;
+    --surface-1:      #0f0f33;
+    --surface-2:      #17173f;
+    --text-primary:   #f2f2fb;
+    --text-secondary: #c1c2dc;
+    --text-muted:     #8688a8;
+    --border:         rgba(255,255,255,0.11);
+    --border-strong:  rgba(255,255,255,0.20);
+
+    --navy:           #b9bce8;
+    --navy-ink:       #f2f2fb;
+    --blue:           #7d9deb;
+    --blue-soft:      #182246;
+    --orange:         #ff8a3d;
+    --orange-soft:    #3a2211;
+
+    --good:           #33c46a;
+    --good-soft:      #103420;
+    --warning:        #e2ab2c;
+    --warning-soft:   #362a0d;
+    --critical:       #ee6a6a;
+    --critical-soft:  #3a1414;
+    --grid:           #23244a;
   }
 
   * { box-sizing: border-box; }
@@ -71,38 +86,62 @@
     background: var(--surface-0);
     color: var(--text-primary);
     font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    padding: 40px 20px 64px;
+    padding: 0 0 64px;
     display: flex;
     justify-content: center;
   }
-  .page { width: 100%; max-width: 1120px; display: flex; flex-direction: column; gap: 28px; }
+  .page { width: 100%; max-width: 1160px; display: flex; flex-direction: column; }
 
-  .masthead {
-    display: flex; flex-direction: column; gap: 6px;
-    padding-bottom: 20px; border-bottom: 1px solid var(--border-strong);
+  /* Corporate masthead, echoing ELECNOR's navy + orange mark */
+  .brandbar {
+    background: var(--navy-ink);
+    background-image: linear-gradient(90deg, var(--navy-ink) 0%, var(--navy) 100%);
+    color: #f4f5ff;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 3px solid var(--orange);
   }
+  .wordmark { font-size: 15px; font-weight: 800; letter-spacing: 0.02em; color: #ffffff; }
+  .wordmark span { color: var(--orange); }
+  .brandbar .tag { font-size: 11.5px; color: #c7c9ec; letter-spacing: 0.04em; }
+
+  .content { padding: 32px 20px 0; display: flex; flex-direction: column; gap: 26px; }
+
+  .masthead { display: flex; flex-direction: column; gap: 6px; padding-bottom: 4px; }
   .eyebrow {
     font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--accent);
+    color: var(--orange);
   }
-  h1 { margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.01em; text-wrap: balance; }
-  .subhead { margin: 2px 0 0; color: var(--text-secondary); font-size: 14.5px; max-width: 65ch; }
+  h1 { margin: 0; font-size: 27px; font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; color: var(--text-primary); }
+  .subhead { margin: 2px 0 0; color: var(--text-secondary); font-size: 14.5px; max-width: 68ch; }
   .meta-row { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 10px; font-size: 12.5px; color: var(--text-muted); }
   .meta-row span b { color: var(--text-secondary); font-weight: 600; }
 
-  /* KPI tiles */
-  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .kpi {
-    background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px;
-    padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;
+  /* Executive hero: one dominant verdict + three supporting stats */
+  .hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 12px; align-items: stretch; }
+  .hero {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+    padding: 22px 26px; display: flex; flex-direction: column; justify-content: center; gap: 10px;
+    border-left: 5px solid var(--warning);
   }
-  .kpi-label { font-size: 11.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
-  .kpi-value { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 28px; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
-  .kpi-sub { font-size: 12px; color: var(--text-secondary); }
-  .pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 99px; width: fit-content; }
-  .pill.warn { background: var(--warning-soft); color: var(--warning); }
-  .pill.good { background: var(--good-soft); color: var(--good); }
-  .pill.crit { background: var(--critical-soft); color: var(--critical); }
+  .hero-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+  .hero-figure-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .hero-value { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 52px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .status-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; padding: 5px 12px; border-radius: 99px; text-transform: uppercase; letter-spacing: 0.03em; }
+  .status-pill.warn { background: var(--warning-soft); color: var(--warning); }
+  .status-pill.good { background: var(--good-soft); color: var(--good); }
+  .status-pill.crit { background: var(--critical-soft); color: var(--critical); }
+  .status-pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .hero-sub { font-size: 13px; color: var(--text-secondary); }
+
+  .stat-stack { display: flex; flex-direction: column; gap: 12px; }
+  .stat {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+    padding: 13px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex: 1;
+  }
+  .stat-label { font-size: 11.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .stat-value { font-family: ui-monospace, Consolas, monospace; font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .stat-sub { font-size: 11.5px; color: var(--text-muted); text-align: right; }
 
   /* Section shell */
   .card {
@@ -110,7 +149,7 @@
     padding: 22px 24px;
   }
   .card h2 { margin: 0 0 3px; font-size: 15.5px; font-weight: 700; }
-  .card .desc { margin: 0 0 18px; font-size: 12.5px; color: var(--text-secondary); max-width: 70ch; }
+  .card .desc { margin: 0 0 18px; font-size: 12.5px; color: var(--text-secondary); max-width: 74ch; }
   .two-col { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 16px; align-items: stretch; }
 
   /* Agency bar chart */
@@ -138,12 +177,10 @@
   .trend-axis-label { font-size: 10px; fill: var(--text-muted); }
 
   /* Ranked cause bars */
-  .cause-row { display: grid; grid-template-columns: 1fr 40px; gap: 10px; align-items: center; padding: 7px 0; }
   .cause-label { font-size: 12.5px; color: var(--text-secondary); display: flex; justify-content: space-between; margin-bottom: 4px; }
   .cause-label b { color: var(--text-primary); font-weight: 600; }
   .cause-track { height: 8px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
-  .cause-fill { height: 100%; background: var(--accent); border-radius: 4px; }
-  .cause-count { text-align: right; font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+  .cause-fill { height: 100%; background: var(--orange); border-radius: 4px; }
 
   /* Breakdown table grid */
   .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -153,63 +190,79 @@
   .mini-row:first-of-type { border-top: none; }
   .mini-row .k { color: var(--text-secondary); }
   .mini-row .v { font-family: ui-monospace, Consolas, monospace; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .mini-row .v.good { color: var(--good); }
+  .mini-row .v.crit { color: var(--critical); }
 
   .callout {
     display: flex; gap: 10px; padding: 14px 16px; border-radius: 10px;
-    background: var(--warning-soft); border: 1px solid var(--border);
+    border: 1px solid var(--border); border-left: 3px solid var(--warning);
+    background: var(--surface-1);
     font-size: 13px; color: var(--text-secondary); line-height: 1.5;
   }
   .callout b { color: var(--text-primary); }
+  .callout.crit { border-left-color: var(--critical); }
+  .callout-mark { font-weight: 800; color: var(--warning); }
+  .callout.crit .callout-mark { color: var(--critical); }
 
-  footer { font-size: 11.5px; color: var(--text-muted); padding-top: 12px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  footer { font-size: 11.5px; color: var(--text-muted); padding: 20px 20px 0; margin-top: 6px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
 
   @media (max-width: 760px) {
-    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-grid { grid-template-columns: 1fr; }
     .two-col { grid-template-columns: 1fr; }
     .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .hero-value { font-size: 40px; }
   }
 </style>
 
 <div class="viz-root">
 <div class="page">
 
+  <div class="brandbar">
+    <div class="wordmark">ELECNOR<span>·</span> PANEL GERENCIAL</div>
+    <div class="tag">Atención Clientes — Plataforma Terreno</div>
+  </div>
+
+  <div class="content">
+
   <div class="masthead">
     <div class="eyebrow">Informe P31 · Velocidad de reparaciones</div>
-    <h1>ELECNOR — cumplimiento de velocidad de reparación, agosto 2026</h1>
+    <h1>Cumplimiento de velocidad de reparación — agosto 2026</h1>
     <p class="subhead">946 incidencias de banda ancha (fibra) cerradas entre el 1 y el 16 de agosto en las agencias de Viña del Mar, Valparaíso y San Antonio. El indicador clave es el cumplimiento de la velocidad end-to-end en 2 días.</p>
     <div class="meta-row">
       <span>Empresa: <b>ELECNOR</b></span>
-      <span>Ámbito: <b>Atención Clientes — Plataforma Terreno</b></span>
       <span>Período: <b>01–16 ago 2026</b></span>
       <span>Estado: <b>946 cerradas (100%)</b></span>
+      <span>Fibra óptica: <b>98.7% del volumen</b></span>
     </div>
   </div>
 
-  <div class="kpi-grid">
-    <div class="kpi">
-      <div class="kpi-label">Incidencias cerradas</div>
-      <div class="kpi-value">946</div>
-      <div class="kpi-sub">98.7% BA / fibra óptica</div>
+  <div class="hero-grid">
+    <div class="hero">
+      <div class="hero-label">Cumplimiento de velocidad ≤ 2 días</div>
+      <div class="hero-figure-row">
+        <div class="hero-value">67.5%</div>
+        <span class="status-pill warn">En riesgo</span>
+      </div>
+      <div class="hero-sub">639 de 946 incidencias cerradas dentro del plazo — la brecha respecto a un cumplimiento saludable (≥80%) equivale a ~118 incidencias.</div>
     </div>
-    <div class="kpi">
-      <div class="kpi-label">Cumple velocidad ≤2 días</div>
-      <div class="kpi-value">67.5%</div>
-      <span class="pill warn">639 de 946 incidencias</span>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">TMO promedio</div>
-      <div class="kpi-value">2.67 <small style="font-size:14px;font-weight:500;color:var(--text-muted)">días</small></div>
-      <div class="kpi-sub">tiempo medio hasta el cierre</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">Fallas masivas</div>
-      <div class="kpi-value">1</div>
-      <div class="kpi-sub">caso aislado, no sistémico</div>
+    <div class="stat-stack">
+      <div class="stat">
+        <div><div class="stat-label">Incidencias cerradas</div></div>
+        <div class="stat-value">946</div>
+      </div>
+      <div class="stat">
+        <div><div class="stat-label">TMO promedio</div></div>
+        <div class="stat-value">2.67<span style="font-size:13px;font-weight:500;color:var(--text-muted)"> d</span></div>
+      </div>
+      <div class="stat">
+        <div><div class="stat-label">Fallas masivas</div></div>
+        <div class="stat-value">1</div>
+      </div>
     </div>
   </div>
 
   <div class="callout">
-    <span>⚠</span>
+    <span class="callout-mark">①</span>
     <span><b>Viña del Mar concentra el 56% del volumen y es la agencia con peor desempeño (60.9%)</b> — su bajo cumplimiento arrastra el promedio global casi 7 puntos por debajo del de Valparaíso. Es la palanca de mayor impacto para mejorar el indicador conjunto.</span>
   </div>
 
@@ -236,31 +289,27 @@
 
       <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
         <div class="cause-label" style="margin-bottom:8px"><b>Distribución acumulada del TMO</b></div>
-        <div class="cause-row" style="grid-template-columns:1fr">
+        <div style="display:flex;flex-direction:column;gap:8px">
           <div>
             <div class="cause-label"><span>≤ 1 día</span><b>413 (43.7%)</b></div>
             <div class="cause-track"><div class="cause-fill" style="width:43.7%"></div></div>
           </div>
-        </div>
-        <div class="cause-row" style="grid-template-columns:1fr">
           <div>
             <div class="cause-label"><span>≤ 2 días</span><b>639 (67.5%)</b></div>
             <div class="cause-track"><div class="cause-fill" style="width:67.5%"></div></div>
           </div>
-        </div>
-        <div class="cause-row" style="grid-template-columns:1fr">
           <div>
             <div class="cause-label"><span>≤ 3 días</span><b>766 (81.0%)</b></div>
             <div class="cause-track"><div class="cause-fill" style="width:81.0%"></div></div>
           </div>
-        </div>
-        <div class="cause-row" style="grid-template-columns:1fr">
+          <div>
+            <div class="cause-label"><span>≤ 4 días</span><b>834 (88.2%)</b></div>
+            <div class="cause-track"><div class="cause-fill" style="width:88.2%"></div></div>
+          </div>
           <div>
             <div class="cause-label"><span>≤ 5 días</span><b>873 (92.3%)</b></div>
             <div class="cause-track"><div class="cause-fill" style="width:92.3%"></div></div>
           </div>
-        </div>
-        <div class="cause-row" style="grid-template-columns:1fr">
           <div>
             <div class="cause-label"><span>&gt; 5 días</span><b style="color:var(--critical)">73 (7.7%)</b></div>
             <div class="cause-track"><div class="cause-fill" style="width:7.7%;background:var(--critical)"></div></div>
@@ -275,14 +324,13 @@
       <div class="donut-wrap">
         <svg width="140" height="140" viewBox="0 0 140 140" style="flex:none">
           <circle cx="70" cy="70" r="52" fill="none" stroke="var(--surface-2)" stroke-width="20"/>
-          <!-- circumference = 2*pi*52 = 326.7 -->
           <circle cx="70" cy="70" r="52" fill="none" stroke="var(--good)" stroke-width="20"
                   stroke-dasharray="220.8 326.7" stroke-dashoffset="0" transform="rotate(-90 70 70)"/>
           <circle cx="70" cy="70" r="52" fill="none" stroke="var(--warning)" stroke-width="20"
                   stroke-dasharray="87.1 326.7" stroke-dashoffset="-220.8" transform="rotate(-90 70 70)"/>
           <circle cx="70" cy="70" r="52" fill="none" stroke="var(--critical)" stroke-width="20"
                   stroke-dasharray="19 326.7" stroke-dashoffset="-307.9" transform="rotate(-90 70 70)"/>
-          <text x="70" y="66" text-anchor="middle" font-size="22" font-weight="700" fill="var(--text-primary)" font-family="ui-monospace, Consolas, monospace">67.6%</text>
+          <text x="70" y="66" text-anchor="middle" font-size="22" font-weight="700" fill="var(--text-primary)" font-family="ui-monospace, Consolas, monospace">67.5%</text>
           <text x="70" y="83" text-anchor="middle" font-size="10" fill="var(--text-muted)">cumple</text>
         </svg>
         <div class="legend">
@@ -298,7 +346,6 @@
     <h2>Tendencia diaria de cumplimiento</h2>
     <p class="desc">Porcentaje de incidencias que cumplen la velocidad de 2 días, por día de cierre (agosto 2026). Los días 2 y 9 (domingos) muestran volumen mínimo.</p>
     <svg class="trend-svg" viewBox="0 0 1040 220" preserveAspectRatio="none">
-      <!-- gridlines at 0,25,50,75,100% -->
       <g stroke="var(--grid)" stroke-width="1">
         <line x1="40" y1="20" x2="1020" y2="20"/>
         <line x1="40" y1="62.5" x2="1020" y2="62.5"/>
@@ -313,15 +360,13 @@
         <text x="34" y="151.5">25%</text>
         <text x="34" y="194">0%</text>
       </g>
-      <!-- average reference line at 67.5% -> y = 190 - 67.5*1.7 = 75.25 -->
       <line x1="40" y1="75.25" x2="1020" y2="75.25" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="4 4"/>
       <text x="1020" y="70" text-anchor="end" font-size="10" fill="var(--text-muted)">promedio 67.5%</text>
 
-      <!-- data: day-of-month 1-16, % cumple. x step = (1020-40)/15 = 65.33 -->
-      <polyline fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" points="
+      <polyline fill="none" stroke="var(--orange)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" points="
         40.0,94.8  105.3,20.0  170.7,80.7  236.0,96.7  301.3,37.5  366.7,64.9  432.0,82.4  497.3,82.2  562.7,20.0  628.0,83.1  693.3,88.9  758.7,54.5  824.0,92.4  889.3,78.0  954.7,26.8  1020.0,35.5
       "/>
-      <g fill="var(--accent)">
+      <g fill="var(--orange)">
         <circle cx="40.0" cy="94.8" r="4"/>
         <circle cx="105.3" cy="20.0" r="4"/>
         <circle cx="170.7" cy="80.7" r="4"/>
@@ -356,19 +401,11 @@
     <div class="card">
       <h2>Causas del incumplimiento</h2>
       <p class="desc">Detalle de las 307 incidencias que no cumplieron la velocidad de 2 días.</p>
-      <div class="cause-row" style="grid-template-columns:1fr;gap:0">
+      <div style="display:flex;flex-direction:column;gap:10px">
         <div><div class="cause-label"><span>Cita &gt; 2 días, no cumple pcita</span><b>134</b></div><div class="cause-track"><div class="cause-fill" style="width:100%"></div></div></div>
-      </div>
-      <div class="cause-row" style="grid-template-columns:1fr;gap:0;margin-top:10px">
         <div><div class="cause-label"><span>Cita &gt; 2 días, cumple pcita</span><b>118</b></div><div class="cause-track"><div class="cause-fill" style="width:88.1%"></div></div></div>
-      </div>
-      <div class="cause-row" style="grid-template-columns:1fr;gap:0;margin-top:10px">
         <div><div class="cause-label"><span>Casa cerrada</span><b>30</b></div><div class="cause-track"><div class="cause-fill" style="width:22.4%"></div></div></div>
-      </div>
-      <div class="cause-row" style="grid-template-columns:1fr;gap:0;margin-top:10px">
         <div><div class="cause-label"><span>Pcita pendiente</span><b>20</b></div><div class="cause-track"><div class="cause-fill" style="width:14.9%"></div></div></div>
-      </div>
-      <div class="cause-row" style="grid-template-columns:1fr;gap:0;margin-top:10px">
         <div><div class="cause-label"><span>Otras (reagenda, derivación PE, etc.)</span><b>5</b></div><div class="cause-track"><div class="cause-fill" style="width:3.7%"></div></div></div>
       </div>
     </div>
@@ -377,7 +414,7 @@
       <h2>Responsable del quiebre de cita</h2>
       <p class="desc">De las 307 incidencias incumplidas, a qué se atribuye el quiebre.</p>
       <div class="legend">
-        <div class="legend-row"><span class="swatch" style="background:var(--accent)"></span><span class="lname">Actividad completada (cita tardía)</span><span class="lval">140</span></div>
+        <div class="legend-row"><span class="swatch" style="background:var(--blue)"></span><span class="lname">Actividad completada (cita tardía)</span><span class="lval">140</span></div>
         <div class="legend-row"><span class="swatch" style="background:var(--orange)"></span><span class="lname">Casa cerrada</span><span class="lval">87</span></div>
         <div class="legend-row"><span class="swatch" style="background:var(--warning)"></span><span class="lname">Actividad pendiente</span><span class="lval">70</span></div>
         <div class="legend-row"><span class="swatch" style="background:var(--text-muted)"></span><span class="lname">Derivación PE / comercial / otro</span><span class="lval">10</span></div>
@@ -386,40 +423,47 @@
     </div>
   </div>
 
+  <div class="callout crit">
+    <span class="callout-mark">②</span>
+    <span><b>Reagendar la cita hunde el cumplimiento a 15.7%</b>, frente a 91.7% cuando la agenda se adelanta y 77.7% en cita original — de los tres tipos de cierre, el reagendamiento es por lejos la variable operativa más determinante sobre el resultado.</span>
+  </div>
+
   <div class="card">
     <h2>Otros cortes</h2>
+    <p class="desc">Incidencias y % de cumplimiento de velocidad (≤2 días) por corte operativo.</p>
     <div class="grid-4">
       <div class="mini-table">
         <h3>Producto</h3>
         <div class="mini-row"><span class="k">BA (fibra)</span><span class="v">934 · 67.7%</span></div>
         <div class="mini-row"><span class="k">TV</span><span class="v">11 · 54.5%</span></div>
-        <div class="mini-row"><span class="k">STB</span><span class="v">1 · 100%</span></div>
+        <div class="mini-row"><span class="k">STB</span><span class="v good">1 · 100%</span></div>
       </div>
       <div class="mini-table">
         <h3>Grupo asignado</h3>
         <div class="mini-row"><span class="k">Plataforma Terreno</span><span class="v">939 · 67.4%</span></div>
-        <div class="mini-row"><span class="k">Plataforma N2 BA</span><span class="v">4 · 100%</span></div>
+        <div class="mini-row"><span class="k">Plataforma N2 BA</span><span class="v good">4 · 100%</span></div>
         <div class="mini-row"><span class="k">Casa cerrada</span><span class="v">2 · 50%</span></div>
-        <div class="mini-row"><span class="k">Falla masiva planta int.</span><span class="v">1 · 100%</span></div>
+        <div class="mini-row"><span class="k">Falla masiva planta int.</span><span class="v good">1 · 100%</span></div>
       </div>
       <div class="mini-table">
         <h3>Tipo de cierre de agenda</h3>
-        <div class="mini-row"><span class="k">Cita original</span><span class="v">555 · 58.7%</span></div>
-        <div class="mini-row"><span class="k">Con reagendamiento</span><span class="v">198 · 20.9%</span></div>
-        <div class="mini-row"><span class="k">Con adelantamiento</span><span class="v">193 · 20.4%</span></div>
+        <div class="mini-row"><span class="k">Cita original</span><span class="v">555 · 77.7%</span></div>
+        <div class="mini-row"><span class="k">Con reagendamiento</span><span class="v crit">198 · 15.7%</span></div>
+        <div class="mini-row"><span class="k">Con adelantamiento</span><span class="v good">193 · 91.7%</span></div>
       </div>
       <div class="mini-table">
         <h3>Franja horaria</h3>
-        <div class="mini-row"><span class="k">AM</span><span class="v">551 · 58.2%</span></div>
-        <div class="mini-row"><span class="k">PM</span><span class="v">395 · 41.8%</span></div>
+        <div class="mini-row"><span class="k">AM</span><span class="v">551 · 64.4%</span></div>
+        <div class="mini-row"><span class="k">PM</span><span class="v">395 · 71.9%</span></div>
       </div>
     </div>
   </div>
 
   <footer>
     <span>Fuente: p31-velocidad-reparaciones_1_ELECNOR_2026-08.xlsx · hoja "in" · 946 filas</span>
-    <span>Generado el 17 ago 2026</span>
+    <span>Generado el 17 ago 2026 · rediseño 20 ago 2026</span>
   </footer>
 
+  </div>
 </div>
 </div>
